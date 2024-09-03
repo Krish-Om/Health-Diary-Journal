@@ -97,8 +97,10 @@ getFirebaseConfig().then((firebaseConfig) => {
                     last_login: dt,
                 });
                 alert("User logged in");
-                setTimeout(clearInputFields, 0);
-                window.location.href = "notepad.html";
+                // setTimeout(clearInputFields, 0);
+                setTimeout(()=>{
+                    window.location.href = "notepad.html";
+                })
                 displayCurrentUser(user);
             })
             .catch((error) => {
