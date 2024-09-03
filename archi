@@ -1,0 +1,31 @@
+project-root/
+├── public/
+│   ├── index.html
+│   ├── home.html
+│   ├── features.html
+│   ├── about.html
+│   ├── contact.html
+│   ├── header.html
+│   ├── footer.html
+├── styles/
+│   ├── style.css
+│   ├── home.css
+│   ├── features.css
+├── scripts/
+│   ├── common.js
+│   ├── auth.js
+│   ├── home.js
+│   ├── features.js
+├── resources/
+│   ├── images/
+│   │   ├── flogo.webp
+│   │   ├── banner.jpg
+│   ├── fonts/
+│   │   ├── custom-font.ttf
+├── config/
+│   ├── firebaseConfig.js
+├── tests/
+│   ├── auth.test.js
+│   ├── home.test.js
+├── package.json
+├── README.md
