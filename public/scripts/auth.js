@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-import {getDatabase,set,ref} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+import {getDatabase,set,ref,update} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
 async function getFirebaseConfig() {
     const response = await fetch('/firebase-config');
@@ -26,7 +26,7 @@ getFirebaseConfig().then(firebaseConfig=> {
             .then((userCredential) => {
                 //signed in
                 const user = userCredential.user;
-                console.log("adding user");
+                // console.log("adding user");
                 set(ref(db, 'users/' + user.uid), {
                     username: username,
                     email: email,
@@ -49,7 +49,16 @@ getFirebaseConfig().then(firebaseConfig=> {
 
         signInWithEmailAndPassword(auth,email,password).
             then((userCredential)=>{
-                console.log("User ")
+                const user = userCredential.user;
+                const dt = new Date();
+                update(ref(db, 'users/' + user.uid), {
+                    last_login : dt,
+                })
+                alert('User logged in');
+        })
+        .catch((error)=>{
+            alert(error.message);
+            console.error(error.message, error.code);
         })
 
 
