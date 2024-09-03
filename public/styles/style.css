@@ -157,7 +157,7 @@ header {
 
 .form-box h2{
     font-size: 2em;
-    color: black;
+    color: #fff;
     text-align: center;
 }
 
@@ -175,7 +175,7 @@ header {
     left: 5px;
     transform: translatey(-50%);
     font-size: 1em;
-    color: #162938;
+    color: #fff;
     font-weight: 500;
     pointer-events: none;
     transition: .5s;
@@ -203,7 +203,7 @@ header {
     position: absolute;
     right: 8px;
     font-size: 1.2em;
-    color: #162938;
+    color: #fff;
     line-height: 57px;
 
 }
@@ -246,14 +246,14 @@ header {
 
 .login-register {
     font-size: .9em;
-    color: #fff;
+    color: #162938;
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
 }
 
 .login-register p a{
-    color: #fff;
+    color: #162938;
     text-decoration: none;
     font-weight: 600;
 }
