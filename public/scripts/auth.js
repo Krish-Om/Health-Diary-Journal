@@ -60,8 +60,9 @@ getFirebaseConfig().then((firebaseConfig) => {
                 set(ref(db, "users/" + user.uid), {
                     username: username, email: email,
                 });
-                window.location.href="notepad.html";
                 alert("user created");
+                setTimeout(clearInputFields, 0);
+                window.location.href="notepad.html";
             })
             .catch((e) => {
                 //error not signed in
