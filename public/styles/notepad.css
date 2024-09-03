@@ -1,0 +1,206 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9f5f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("resource/Background.jpg"); /* Background image for the body */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Container for the Notepad */
+.container {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgba(11, 11, 11, 0.32);
+}
+
+/* Section for the List of Notes */
+.note-list-section {
+    width: 30%;
+    background: #2c3e50;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    background-image: url('medical-sidebar.jpg'); /* Sidebar background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.note-list-section h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#noteList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#noteList li {
+    padding: 10px;
+    border-bottom: 1px solid #34495e;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#noteList li:hover {
+    background-color: #34495e;
+}
+
+#noteList li button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+#noteList li button:hover {
+    background-color: #c0392b;
+}
+
+#newNoteBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#newNoteBtn:hover {
+    background-color: #16a085;
+}
+
+/* Section for Writing Notes */
+.note-editor-section {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: transparent; /* Medical-themed background for the writing area */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #2c3e50;
+}
+
+#noteTitle {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: transparent;
+}
+
+#noteTitle:focus {
+    border-color: #3498db;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.note-editor {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent; 
+    overflow-y: auto;
+    position: relative; /* Container must be relatively positioned for absolute children */
+}
+
+.note-editor img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: block; /* Ensure images stack vertically */
+    clear: both; /* Prevent overlap with preceding content */
+    position: relative; /* Default positioning */
+}
+
+.note-editor img.full-size {
+    max-width: 90vw;
+    max-height: 90vh;
+    position: fixed; /* Fixed position for full-size view */
+    top: 10%;
+    left: 10%;
+    margin: auto;
+    z-index: 1000; /* Ensure full-size image is on top */
+}
+
+
+.image-upload-btn {
+    cursor: pointer;
+    padding: 6px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    width:90px;
+}
+
+.image-upload-btn:hover {
+    background-color: #2980b9;
+}
+
+
+/* Scrollbar Styling for the Note List */
+#noteList {
+    scrollbar-width: thin;
+    scrollbar-color: #34495e #2c3e50;
+}
+
+#noteList::-webkit-scrollbar {
+    width: 8px;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+textarea::placeholder {
+    color: white;
+    opacity: 1;
+}

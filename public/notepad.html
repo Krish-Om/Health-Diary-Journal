@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad Website</title>
+    <link rel="stylesheet" href="styles/notepad.css">
+</head>
+<body>
+    <div class="container">
+        <div class="note-list-section">
+            <h2>Health Diary</h2>
+            <ul id="noteList"></ul>
+            <button id="newNoteBtn">New Note</button>
+        </div>
+        <div class="note-editor-section">
+            <input type="text" id="noteTitle" placeholder="Note Title">
+            <div id="noteEditor" class="note-editor" contenteditable="true" placeholder="Write your notes here..."></div>
+            <button class="image-upload-btn" onclick="document.getElementById('imageUpload').click()">Add Image</button>
+            <input type="file" id="imageUpload" style="display: none;" accept="image/*" onchange="handleImageUpload(event)">
+        </div>
+    </div>
+    <script src="scripts/notepad.js"></script>
+</body>
+</html>
