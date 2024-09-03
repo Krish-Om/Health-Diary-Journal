@@ -16,8 +16,8 @@ body {
 /* Container for the Notepad */
 .container {
     display: flex;
-    width: 80%;
-    height: 80vh;
+    width: 100%;
+    height: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;

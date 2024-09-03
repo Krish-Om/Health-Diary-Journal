@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         noteList.innerHTML = '';
         notes.forEach((note, index) => {
             const li = document.createElement('li');
-            li.textContent = note.title || `Note ${index + 1}`;
+            const noteDate = new Date(note.date).toLocaleString();
+            // li.textContent = note.title || `Note ${index + 1}`;
+            li.innerHTML = `<strong>${note.title || `Note ${index + 1}`}</strong><br><small>${noteDate}</small>`;
             li.dataset.index = index;
             li.addEventListener('click', () => selectNote(index));
 
@@ -37,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createNewNote() {
-        const newNote = { title: '', content: '' };
+        const date =new Date();
+        const newNote = { title: '', content: '',date: date.toISOString()};
         notes.push(newNote);
         currentNoteIndex = notes.length - 1;
         renderNoteList();
