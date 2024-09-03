@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("resource/Background.jpg"); /* Background image for the body */
+    background-image: url("../resource/Background.jpg"); /* Background image for the body */
     background-size: cover;
     background-position: center;
 }
@@ -33,7 +33,7 @@ body {
     color: #ecf0f1;
     display: flex;
     flex-direction: column;
-    background-image: url('medical-sidebar.jpg'); /* Sidebar background image */
+    /*background-image: url('medical-sidebar.jpg'); !* Sidebar background image *!*/
     background-size: cover;
     background-position: center;
 }
@@ -122,6 +122,7 @@ body {
     border-radius: 8px;
     box-sizing: border-box;
     outline: none;
+    color:antiquewhite;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s, box-shadow 0.3s;
     background-color: transparent;
@@ -141,6 +142,8 @@ body {
     box-sizing: border-box;
     outline: none;
     font-size: 16px;
+    color:white;
+
     background-color: transparent; 
     overflow-y: auto;
     position: relative; /* Container must be relatively positioned for absolute children */
@@ -154,17 +157,18 @@ body {
     cursor: pointer;
     display: block; /* Ensure images stack vertically */
     clear: both; /* Prevent overlap with preceding content */
-    position: relative; /* Default positioning */
+    transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
 }
 
 .note-editor img.full-size {
     max-width: 90vw;
     max-height: 90vh;
     position: fixed; /* Fixed position for full-size view */
-    top: 10%;
-    left: 10%;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
     z-index: 1000; /* Ensure full-size image is on top */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
 }
 
 
@@ -177,24 +181,23 @@ body {
     border-radius: 5px;
     font-size: 0.9rem;
     transition: background-color 0.3s;
-    width:90px;
+    width: 90px;
 }
 
 .image-upload-btn:hover {
     background-color: #2980b9;
 }
 
-
 /* Scrollbar Styling for the Note List */
 #noteList {
     scrollbar-width: thin;
     scrollbar-color: #34495e #2c3e50;
 }
-
 #noteList::-webkit-scrollbar {
     width: 8px;
 }
 
+/* Placeholder Styling */
 input::placeholder {
     color: white;
     opacity: 1;

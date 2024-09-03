@@ -16,10 +16,10 @@
         <div class="note-editor-section">
             <input type="text" id="noteTitle" placeholder="Note Title">
             <div id="noteEditor" class="note-editor" contenteditable="true" placeholder="Write your notes here..."></div>
-            <button class="image-upload-btn" onclick="document.getElementById('imageUpload').click()">Add Image</button>
-            <input type="file" id="imageUpload" style="display: none;" accept="image/*" onchange="handleImageUpload(event)">
+            <button class="image-upload-btn">Add Image</button>
+            <input type="file" id="imageUpload" style="display: none;" accept="image/*" onchange="getFile(event)">
         </div>
     </div>
-    <script src="scripts/notepad.js"></script>
+    <script src="scripts/notepad.js" type="module"></script>
 </body>
 </html>

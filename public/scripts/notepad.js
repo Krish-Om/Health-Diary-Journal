@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const noteEditor = document.getElementById('noteEditor');
     const noteTitle = document.getElementById('noteTitle');
     const newNoteBtn = document.getElementById('newNoteBtn');
+    const imageUploadBtn = document.querySelector('.image-upload-btn');
+    const imageUploadInput = document.getElementById('imageUpload');
 
     let notes = JSON.parse(localStorage.getItem('notes')) || [];
     let currentNoteIndex = null;
 
     function renderNoteList() {
-
         noteList.innerHTML = '';
         notes.forEach((note, index) => {
             const li = document.createElement('li');
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Delete';
             deleteBtn.addEventListener('click', (e) => {
-                e.preventDefault();
                 e.stopPropagation(); // Prevent triggering the selectNote event
                 deleteNote(index);
             });
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectNote(index) {
         currentNoteIndex = index;
         noteTitle.value = notes[index].title || '';
-        noteEditor.value = notes[index].content || '';
+        noteEditor.innerHTML = notes[index].content || '';
         noteTitle.focus();
     }
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentNoteIndex === index) {
             currentNoteIndex = null;
             noteTitle.value = '';
-            noteEditor.value = '';
+            noteEditor.innerHTML = '';
         }
         renderNoteList();
         saveNotes();
@@ -59,45 +59,37 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveNotes() {
         if (currentNoteIndex !== null) {
             notes[currentNoteIndex].title = noteTitle.value || `Note ${currentNoteIndex + 1}`;
-            notes[currentNoteIndex].content = noteEditor.value;
+            notes[currentNoteIndex].content = noteEditor.innerHTML;
         }
         localStorage.setItem('notes', JSON.stringify(notes));
     }
 
+    function getFile(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.addEventListener('click', () => toggleImageSize(img));
+                noteEditor.appendChild(img);
+                saveNotes();
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function toggleImageSize(img) {
+        img.classList.toggle('full-size');
+    }
+
+    // Event listeners
     noteTitle.addEventListener('input', saveNotes);
     noteEditor.addEventListener('input', saveNotes);
     newNoteBtn.addEventListener('click', createNewNote);
+    imageUploadBtn.addEventListener('click', () => imageUploadInput.click());
+    imageUploadInput.addEventListener('change', getFile);
 
     // Load and render the list of notes
     renderNoteList();
 });
-
-/*Image Handler*/
-function handleImageUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const imgElement = document.createElement('img');
-            imgElement.src = e.target.result;
-            imgElement.style.maxWidth = '100px';
-            imgElement.style.maxHeight = '100px';
-            imgElement.style.cursor = 'pointer';
-            imgElement.style.marginTop = '10px';
-            imgElement.onclick = function() {
-                if (imgElement.style.maxWidth === '100%') {
-                    imgElement.style.maxWidth = '100px';
-                    imgElement.style.maxHeight = '100px';
-                } else {
-                    imgElement.style.maxWidth = '100%';
-                    imgElement.style.maxHeight = '100%';
-                }
-            };
-            const noteEditor = document.getElementById('noteEditor');
-            noteEditor.appendChild(imgElement);
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-
