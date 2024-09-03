@@ -62,7 +62,9 @@ getFirebaseConfig().then((firebaseConfig) => {
                 });
                 alert("user created");
                 setTimeout(clearInputFields, 0);
+                setTimeout(()=>{
                 window.location.href="notepad.html";
+                })
             })
             .catch((e) => {
                 //error not signed in
