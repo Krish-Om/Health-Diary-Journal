@@ -1,3 +1,107 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthDiary - Personal Health Journal</title>
 
-<!DOCTYPE html>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <!--<h2 class ="logo"> Logo</h2>-->
+        <img src="resource/flogo.webp" alt="HealthDiary" class="logo">
+        <nav class="navigation">
+            <a href = "home.html">Home</a>
+            <a href = "Features.html">Features</a>
+            <a href = "About.html">About</a>
+            <a href = "Contact.html">Contact</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+
+    </header>
+    <div class="Wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required id = "email-login-Inp">
+                    <label>Email</label>
+                </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" required id="password-login-Inp">
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn" id="login-btn">Login</button>
+                    <div class="login-register">
+                        <p>Don't have an account?<a href="#" class ="register-link">
+                            Register
+                        </a></p>
+                    </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input id = "username-reg-Inp" type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email"  id="email-reg-Inp" required>
+                    <label>Email</label>
+                </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password"  id ="password-reg-Inp" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span>I agree to terms & conditions.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn" id="register-btn">Register</button>
+                    <div class="login-register">
+                        <p>Already have an account?<a href="#" class ="login-link">
+                            Login
+                        </a></p>
+                    </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="scripts/auth.js" defer type = "module"></script>
+    <script src = "scripts/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
