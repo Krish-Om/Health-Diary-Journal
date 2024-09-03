@@ -42,10 +42,14 @@ window.addEventListener('scroll', function() {
     if (scrollTop > lastScrollTop) {
         // Scrolling down
         header.classList.add('header-hidden');
+        wrapper.classList.remove('active-popup');
     } else {
         // Scrolling up
         header.classList.remove('header-hidden');
+        wrapper.classList.remove('active-popup');
     }
     
     lastScrollTop = scrollTop;
 });
+
+
