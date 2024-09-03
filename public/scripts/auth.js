@@ -60,8 +60,11 @@ getFirebaseConfig().then((firebaseConfig) => {
                 set(ref(db, "users/" + user.uid), {
                     username: username, email: email,
                 });
-                window.location.href="notepad.html";
                 alert("user created");
+                setTimeout(clearInputFields, 0);
+                setTimeout(()=>{
+                window.location.href="notepad.html";
+                })
             })
             .catch((e) => {
                 //error not signed in
@@ -96,8 +99,10 @@ getFirebaseConfig().then((firebaseConfig) => {
                     last_login: dt,
                 });
                 alert("User logged in");
-                setTimeout(clearInputFields, 0);
-                window.location.href = "notepad.html";
+                // setTimeout(clearInputFields, 0);
+                setTimeout(()=>{
+                    window.location.href = "notepad.html";
+                })
                 displayCurrentUser(user);
             })
             .catch((error) => {
