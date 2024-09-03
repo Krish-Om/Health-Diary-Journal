@@ -45,24 +45,29 @@ getFirebaseConfig().then((firebaseConfig) => {
       });
   });
 
+  const loginBtn = document.getElementById('login-btn');
+  loginBtn.addEventListener("click", (e) => {
+    let email = document.getElementById("email-login-Inp").value;
+    let password = document.getElementById("password-login-Inp").value;
 
- 
-    loginBtn.addEventListener("click", (e) => {
-      let email = document.getElementById("email-login-Inp").value;
-      let password = document.getElementById("password-login-Inp").value;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log("email", email);
-          console.log("passowrd:", password);
-          alert("User logged in");
+    
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        const dt = new Date();
+
+        update(ref(db,'users/'+ user.uid),{
+            last_login : dt,
         })
-        .catch((error) => {
-          // Error occurred
+
+        alert("User logged in");
+      })
+      .catch((error) => {
+        // Error occurred
         //   alert(error.message);
-          console.log(error)
-        });
-    });
+        console.log(error);
+      });
+  });
 });
