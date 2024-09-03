@@ -118,17 +118,5 @@ getFirebaseConfig().then((firebaseConfig) => {
     });
 
 
-    const logoutBtn = document.getElementById("logout-btn");
-    logoutBtn.addEventListener("click", (e) => {
-        signOut(auth)
-            .then(() => {
-                alert('sign out successful')
-                // Sign-out successful.
-                window.location.href="index.html";
-            })
-            .catch((error) => {
-                // An error happened.
-                alert(error.message);
-            });
-    });
+
 });
