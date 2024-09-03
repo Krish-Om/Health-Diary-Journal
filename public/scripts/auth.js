@@ -64,7 +64,7 @@ getFirebaseConfig().then((firebaseConfig) => {
                 setTimeout(clearInputFields, 0);
                 setTimeout(()=>{
                 window.location.href="notepad.html";
-                })
+                },1000)
             })
             .catch((e) => {
                 //error not signed in
