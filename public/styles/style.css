@@ -8,13 +8,16 @@
 }
 
 body{
-    display:flex;
+    margin: 0;
+    padding: 0;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background: url('../resource/Background.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 header {
@@ -28,6 +31,11 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+    transition: top 0.3s ease-in-out;
+}
+
+.header-hidden {
+    top: -200px; /* Adjust based on your header's height */
 }
 
 .logo{
@@ -90,12 +98,15 @@ header {
 
 .navigation .btnLogin-popup:hover {
     background: linear-gradient(90deg, #162938, white);
-    border: 2px solid #162938;
     color: #fff;
 }
 
 .Wrapper{
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -15%;
+    margin-left: -10%;
     width: 400px;
     height: 440px;
     background: transparent;
@@ -200,7 +211,7 @@ header {
     border: none;
     outline: none;
     font-size: 1em;
-    color: #162938;
+    color: #fff;
     font-weight: 600;
     padding: 0 35px 0 5px;
 
@@ -267,4 +278,29 @@ header {
 
 .login-register p a:hover{
     text-decoration: underline;
+}
+
+.features{
+    margin-top: 750px;
+    padding: 100px 20px;
+    height: 100vh; 
+    width: 100%;
+    background-color: #162938;
+    color:#fff;
+
+
+}
+.about{
+    padding: 100px 20px; 
+    height: 100vh; 
+    width: 100%;
+    background-color:#3c76a2;
+    color:#fff;
+}
+.contact{
+    padding: 100px 20px; 
+    height: 100vh;
+    width: 100%;
+    background-color: #203d54;
+    color:#fff;
 }

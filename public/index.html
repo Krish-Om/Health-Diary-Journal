@@ -8,22 +8,22 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <img src="resource/flogo.webp" alt="HealthDiary" class="logo">
         <nav class="navigation">
-            <a href = "#">Home</a>
-            <a href = "#">Features</a>
-            <a href = "#">About</a>
-            <a href = "#">Contact</a>
+            <a href = "#home">Home</a>
+            <a href = "#features">Features</a>
+            <a href = "#about">About</a>
+            <a href = "#contact">Contact</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
 
     </header>
     <div class="Wrapper">
-        <span class="icon-close">
+        <span class="icon-close" >
             <ion-icon name="close"></ion-icon>
         </span>
-
+        
         <div class="form-box login">
             <h2>Login</h2>
             <form action="#">
@@ -96,6 +96,24 @@
             </form>
         </div>
     </div>
+    <div id="home">
+        <h1>.</h1>
+    </div>
+    <div class="features" id="features">
+    
+        <h2>Features</h2>
+        <p>Details about features...</p>
+    </div>
+
+    <div class="about" id="about">
+        <h2>About</h2>
+        <p>Details about us...</p>  
+    </div>
+    <div class="contact" id="contact">
+        <h2>Contact</h2>
+        <p>Contact information...</p> 
+    </div>
+
     
     <script src="scripts/auth.js" defer type = "module"></script>
     <script src = "scripts/script.js"></script>
